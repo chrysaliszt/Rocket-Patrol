@@ -65,6 +65,11 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+        // check key input for restart
+        if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyRESET)) {
+            this.scene.restart()
+        }
+
         this.starfield.tilePositionX -= game.config.width / 640 * 2
 
         if(!this.gameOver) {
